@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `i20` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `i20`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: i20
@@ -51,6 +53,7 @@ CREATE TABLE `categoryproduct` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category_id` int NOT NULL,
   `product_id` int NOT NULL,
+  `main` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`),
   KEY `product_id` (`product_id`),
@@ -65,10 +68,10 @@ CREATE TABLE `categoryproduct` (
 
 LOCK TABLES `categoryproduct` WRITE;
 /*!40000 ALTER TABLE `categoryproduct` DISABLE KEYS */;
-INSERT INTO `categoryproduct` VALUES (1,1,1),(2,2,2),(3,3,3),(4,1,4),(5,4,4),(6,2,5),(7,2,6),(8,3,7),(9,3,8),(10,1,9),(11,5,9),(12,5,10),(13,4,11),(14,4,12),(15,2,13),(16,2,14),(17,3,15);
+INSERT INTO `categoryproduct` VALUES (1,1,1,1),(2,2,2,1),(3,3,3,1),(4,1,4,0),(5,4,4,1),(6,2,5,1),(7,2,6,1),(8,3,7,1),(9,3,8,1),(10,1,9,0),(11,5,9,1),(12,5,10,1),(13,4,11,1),(14,4,12,1),(15,2,13,1),(16,2,14,1),(17,3,15,1);
 /*!40000 ALTER TABLE `categoryproduct` ENABLE KEYS */;
 UNLOCK TABLES;
-select * from categoryproduct;
+
 --
 -- Table structure for table `images`
 --
@@ -155,6 +158,10 @@ LOCK TABLES `product` WRITE;
 INSERT INTO `product` VALUES (1,'Рубашка Medicine',2699.00,2499.00,2227.00,'Рубашка Medicine выполнена из вискозной ткани с клетчатым узором. Детали: прямой крой; отложной воротник; планка и манжеты на пуговицах; карман на груди.',1,255,'Medicine'),(2,'Nike ботинки',12000.00,11540.00,11200.00,'Интересный релиз Nike, в рамках которого специалисты бренда решили выпустить культовую модель Air Force в демисезонном варианте. Эффектный верх из иск. кожи и текстиля. дополнен стегаными деталями акцентами и резиновым носком',1,245,'Nike'),(3,'Зонт GUCCI',3200.00,3000.00,2840.00,'Красный зонт с асимметричным принтом в виде гороха и фантазийного орнамента поможет подчеркнуть романтичность натуры.',1,458,'Gucci'),(4,'GIUSEPPE DI MORABITO',7530.00,7500.00,7484.00,'Приталенное мини-платье насыщенного оттенка фуксии сшили из мягкой гладкой кожи с деликатным блеском.',1,1452,'Morabito'),(5,'Кроссовки LITE RACER 2.0',6399.00,3510.00,3210.00,'Кроссовки в беговом стиле выполнены из дышащего сетчатого текстиля.',1,4215,'adidas'),(6,'Ботинки Strobbs',5999.00,4520.00,4000.00,'Ботинки, идеальные для дождливой погоды',1,214,'Strobbs'),(7,'Зонт-трость',5200.00,3250.00,3012.00,'',1,5452,'Lamberti'),(8,'Зонт складной WOOD CLASSIC S',6000.00,5240.00,3420.00,'',1,3213,'Samsonite'),(9,'Рубашка Oxford Shirt',5990.00,3777.00,3410.00,'Рубашка выполнена из вискозной ткани с клетчатым узором. Детали: прямой крой; отложной воротник; планка и манжеты на пуговицах; карман на груди.',1,312,'Lyle & Scott'),(10,'Рубашка Versache Jeans',63500.00,57150.00,55400.00,'Рубашка выполнена из вискозной ткани с клетчатым узором. Детали: прямой крой; отложной воротник; планка и манжеты на пуговицах; карман на груди.',1,545,'Versache Jeans'),(11,'Платье DRESS TO IMPRESS',47300.00,40205.00,39500.00,'Платье отличного качетсва.',1,6423,'Pinco'),(12,'Платье Barmariska',6699.00,2713.00,2545.00,'Платье отличного качетсва.',1,523,'Barmariska'),(13,'Кроссовки Ash',17900.00,17500.00,17000.00,'Кроссовки для повседнего выхода.',1,632,'Ash'),(14,'Ботинки полнота C (3)',5499.00,3999.00,3645.00,'Ботинки, идеальные для дождливой погоды.',1,642,'Instreet'),(15,'Зонт складной',8200.00,7250.00,7012.00,'',1,987,'Moschino');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'i20'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -165,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 15:30:57
+-- Dump completed on 2022-10-21 22:32:00
